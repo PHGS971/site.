@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHGS Scripts</title>
+  <link rel="stylesheet" href="../src/styles/geral.css">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    /* Particle background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #1b1e34;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: #1b1e34;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Editable clock */
+    .hora-brasilia {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+           stroke-linecap="round" stroke-linejoin="round" 
+           class="lucide lucide-app-window-icon lucide-app-window">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M10 4v4"/>
+        <path d="M2 8h20"/>
+        <path d="M6 4v4"/>
+      </svg>
+      <h1>PHGS Scripts</h1>
+    </div>
+    <!-- Clock -->
+    <div class="hora-brasilia"></div>
+  </header>
+
+  <!-- CTA Section -->
+  <section class="CTA">
+    <div class="main-text">
+      <h1>Become a <span>Professional Scripter!</span></h1>
+      <p>Exclusive and brand-new videos with the most OP scripts</p>
+      <a href="https://youtube.com/@PHGS_ofc">
+        <button class="YT">YouTube</button>
+      </a>
+      <a href="https://discord.gg/WNPR7RCJ8G">
+        <button class="DD">Discord CYA</button>
+      </a>
+    </div>
+    <img src="../src/images/PHGS.png" alt="Logo_start" class="Logo_start">
+  </section>
+
+  <!-- Other section -->
+  <section class="outros">
+    <h2 class="header2">coming <span>soon...</span></h2>
+
+    <div class="cards">
+      <h2>CYA STUDIOS</h2>
+      <p>The CYA hub right here on this website!</p>
+      <span>Coming soon -></span>
+    </div>
+    <div class="cards">
+      <h2>Scripts</h2>
+      <p>The most OP scripts in the world!</p>
+      <span>Coming soon -></span>
+    </div>
+    <div class="cards">
+      <h2>Executors</h2>
+      <p>Functional and up-to-date executors!</p>
+      <span>Coming soon -></span>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    // Particle background configuration
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#cccccc" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.8, "random": true },
+        "size": { "value": 4, "random": true },
+        "line_linked": { "enable": false },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": false },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 100,
+            "line_linked": { "opacity": 0.3 }
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Clock function for US Eastern Time
+    function updateUSTime() {
+      const now = new Date();
+      const options = {
+        timeZone: "America/New_York",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      };
+      const formattedTime = now.toLocaleTimeString("en-US", options);
+      document.querySelector(".hora-brasilia").textContent =
+        `US Eastern Time: ${formattedTime}`;
+    }
+
+    // Update the clock
+    updateUSTime();
+    setInterval(updateUSTime, 1000);
+  </script>
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('playMusic') === 'true') {
+      const audio = new Audio('feel It.mp3');
+      const elapsed = (Date.now() - localStorage.getItem('musicStartTime')) / 1000;
+      audio.currentTime = elapsed;
+      audio.loop = true;
+      audio.play();
+    }
+  });
+</script>
+</body>
+</html>

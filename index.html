@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>language/idioma</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #ff9800;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #e68900;
+    }
+  </style>
+</head>
+<body>
+  <h1>Selecione seu Idioma
+  select your language</h1>
+  <button class="btn" onclick="playAndRedirect('PT.html')">Português</button>
+  <button class="btn" onclick="playAndRedirect('IN.html')">English</button>
+
+  <audio id="bgMusic" src="feel It.mp3" preload="auto"></audio>
+
+  <script>
+    function playAndRedirect(page) {
+      const audio = document.getElementById('bgMusic');
+      audio.play()
+        .then(() => {
+          // Aguarda 0,5s para iniciar a música e depois redireciona
+          setTimeout(() => {
+            window.location.href = page;
+          }, 500);
+        })
+        .catch(error => {
+          console.error("Erro ao tocar a música:", error);
+          window.location.href = page; // Redireciona mesmo se falhar
+        });
+    }
+  </script>
+</body>
+</html>

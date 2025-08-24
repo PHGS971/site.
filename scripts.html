@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copiar Scripts - PHGS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    .btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    .msg {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #10b981;
+      font-weight: bold;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Copiar Scripts</h1>
+  <button class="btn" onclick="copyScript('nights')">Copiar 99 Noites</button>
+  <button class="btn" onclick="copyScript('brainrot')">Copiar Roube um Brainrot</button>
+  <div id="msg" class="msg"></div>
+
+  <script>
+    const scripts = {
+      nights: `loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()`,
+      brainrot: `loadstring(game:HttpGet("https://pastefy.app/TnWWJ4NS/raw"))()`
+    };
+
+    function copyScript(type) {
+      navigator.clipboard.writeText(scripts[type]).then(() => {
+        document.getElementById('msg').textContent = "Script copiado com sucesso!";
+        setTimeout(() => document.getElementById('msg').textContent = "", 2000);
+      }).catch(err => {
+        document.getElementById('msg').textContent = "Erro ao copiar!";
+      });
+    }
+  </script>
+</body>
+</html>

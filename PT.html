@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHGS Scripts</title>
+  <link rel="stylesheet" href="../src/styles/geral.css">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    /* Fundo de partículas */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #1b1e34;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: #1b1e34;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Relógio editável */
+    .hora-brasilia {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+  </style>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+</head>
+<body>
+  <!-- Fundo animado -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+           stroke-linecap="round" stroke-linejoin="round" 
+           class="lucide lucide-app-window-icon lucide-app-window">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M10 4v4"/>
+        <path d="M2 8h20"/>
+        <path d="M6 4v4"/>
+      </svg>
+      <h1>PHGS Scripts</h1>
+    </div>
+    <!-- Relógio -->
+    <div class="hora-brasilia"></div>
+  </header>
+
+  <!-- Seção CTA -->
+  <section class="CTA">
+    <div class="main-text">
+      <h1>Seja Um <span>Scripter Profissional!</span></h1>
+      <p>Vídeos inéditos e novos com os scripts mais OPs</p>
+      <a href="https://youtube.com/@PHGS_ofc">
+        <button class="YT">Youtube</button>
+      </a>
+      <a href="https://discord.gg/WNPR7RCJ8G">
+        <button class="DD">Discord CYA</button>
+      </a>
+    </div>
+    <img src="../src/images/PHGS.png" alt="Logo_start" class="Logo_start">
+  </section>
+
+  <!-- Seção outros -->
+  <section class="outros">
+    <h2 class="header2"><span>mais...</span></h2>
+
+<div class="cards">
+  <h2>CYA STUDIOS</h2>
+  <p>A central CYA neste site!</p>
+  <span class="cc">
+    <a href="CYA.html" style="text-decoration:none; color:inherit;">Ir -></a>
+  </span>
+</div>
+    <div class="cards">
+      <h2>Scripts</h2>
+      <p>Os scripts mais OPs do mundo!</p>
+      <span class="cc"><a href="scripts.html" style="text-decoration:none; color:inherit;">Ir -></a></span>
+    </div>
+    <div class="cards">
+      <h2>Executores</h2>
+      <p>Executores funcionais e atualizados!</p>
+      <span class="cc"><a href="https://deltaexploits.gg/" style="text-decoration:none; color:inherit;">Ir -></a></span>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    // Configuração do fundo de partículas
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#cccccc" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.8, "random": true },
+        "size": { "value": 4, "random": true },
+        "line_linked": { "enable": false },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": false },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 100,
+            "line_linked": { "opacity": 0.3 }
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Função do relógio
+    function atualizarHoraBrasilia() {
+      const agora = new Date();
+      const opcoes = {
+        timeZone: "America/Sao_Paulo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      };
+      const horaFormatada = agora.toLocaleTimeString("pt-BR", opcoes);
+      document.querySelector(".hora-brasilia").textContent =
+        `Horário de Brasília: ${horaFormatada}`;
+    }
+
+    // Atualiza o relógio
+    atualizarHoraBrasilia();
+    setInterval(atualizarHoraBrasilia, 1000);
+  </script>
+  <script src="audio.js"></script>
+</body>
+</html>

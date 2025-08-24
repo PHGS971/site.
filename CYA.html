@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYA STUDIOS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #A62107;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-position: 0 0;
+      animation: moveGrid 10s ease-in-out infinite alternate;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100%;
+      background-color: #1e1e1e;
+      color: white;
+      padding-top: 60px;
+      transition: 0.3s;
+      z-index: 999;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 14px 20px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #333;
+      font-size: 16px;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+    }
+
+    .copiar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .texto {
+      flex: 1;
+      text-align: left;
+      padding-right: 10px;
+      color: #000;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .copiar-btn {
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .copiar-btn:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1, p, .btn, .footer, .team-title, .team-list {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.3em;
+      animation-delay: 0.2s;
+      color: white;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+      color: #cccccc;
+      animation-delay: 0.4s;
+    }
+
+    .btn {
+      background-color: #1e88e5;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      font-size: 1em;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+      margin: 10px auto;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .btn:hover {
+      background-color: #1565c0;
+      transform: scale(1.05);
+    }
+
+    .btn:nth-of-type(1) { animation-delay: 0.6s; }
+    .btn:nth-of-type(2) { animation-delay: 0.8s; }
+    .btn:nth-of-type(3) { animation-delay: 1s; }
+
+    .footer {
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #999;
+      animation-delay: 1.2s;
+    }
+
+    .team-title {
+      margin-top: 40px;
+      font-size: 1.3em;
+      color: white;
+      animation-delay: 1.4s;
+    }
+
+    .team-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      color: #eeeeee;
+      font-size: 1.05em;
+      animation-delay: 1.6s;
+    }
+
+    .team-list li {
+      margin: 5px 0;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes moveGrid {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 10px 10px;
+      }
+    }
+
+    /* Loader */
+    #loaderOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #1e88e5;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loaderOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Menu Toggle -->
+  <div id="menuToggle" class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="#" onclick="toggleSidebar()">✕ Fechar</a>
+    <a href="index.html">🏠 Início</a>
+    <a href="#" onclick="showLoader(() => window.location.href = 'key.html')">🔑 Comprar Key Premium</a>
+    <a href="#" onclick="showLoader(() => window.location.href = 'agr.html')">🛠️ Entrar na Equipe</a>
+    <a href="#" onclick="showLoader(() => window.open('https://discord.gg/8KyfehGUnT', '_blank'))">💬 Discord</a>
+  </div>
+
+  <div class="container">
+    <h1>CYA STUDIOS</h1>
+    <p>/&gt;Equipe de scripts&lt;/</p>
+
+    <button class="btn" onclick="showLoader(() => window.location.href='key.html')">Comprar Key Premium</button>
+    <button class="btn" onclick="showLoader(() => window.location.href='agr.html')">Entrar na equipe</button>
+    <button class="btn" onclick="showLoader(() => window.open('https://discord.gg/NxhsprxzG5', '_blank'))">Entrar no Discord</button>
+
+    <div class="team-title">🥷 Equipe CYA STUDIOS</div>
+    <ul class="team-list" id="teamList"></ul>
+
+    <div class="footer">|CYA STUDIOS/PHGS/2025|</div>
+  </div>
+
+  <div class="copiar-container">
+    <div class="texto" id="textoCopiar">loadstring(game:HttpGet("https://raw.githubusercontent.com/PHGS971/CALCULADORA-LUAa/refs/heads/main/Protected_3854435013160796.lua.txt"))()</div>
+    <button class="copiar-btn" onclick="copiarTexto()">Copiar</button>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
+    }
+
+    function copiarTexto() {
+      const texto = document.getElementById("textoCopiar").innerText;
+      const tempInput = document.createElement("textarea");
+      tempInput.value = texto;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      alert("Texto copiado: " + texto);
+    }
+
+    function showLoader(callback) {
+      document.getElementById("loaderOverlay").style.display = "flex";
+      setTimeout(() => {
+        callback();
+        document.getElementById("loaderOverlay").style.display = "none";
+      }, 1000); // 2 segundos de carregamento
+    }
+
+    const owners = [
+  { id: "1368708814207189169", name: "PHGS" },
+  { id: "1368708814207189169", name: "GTX" }
+];
+    const teamList = document.getElementById("teamList");
+    owners.forEach(owner => {
+      const li = document.createElement("li");
+      li.textContent = `💻 ${owner.name}`;
+      teamList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
+
