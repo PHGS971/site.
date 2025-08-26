@@ -142,3 +142,15 @@ header h1 {
 .cc {
   color: blue;
 }
+
+.secret{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+  background-color: #20002b;
+  margin: 20px;
+  border-radius: 20px;
+}
