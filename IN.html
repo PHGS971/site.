@@ -38,9 +38,8 @@
       display: inline-block;
       margin-top: 5px;
     }
-  </style>
-    <style>
-    /* Player fixo no canto inferior direito */
+
+    /* Fixed music player in bottom-right corner */
     #musicPlayer {
       position: fixed;
       bottom: 20px;
@@ -118,10 +117,10 @@
     </div>
   </section>
 
+  <!-- Music Player -->
   <div id="musicPlayer">
-    <audio id="audio" src="feel it.mp3" autoplay loop controls></audio>
+    <audio id="audio" src="/feel%20it.mp3" autoplay loop muted controls></audio>
   </div>
-
 
   <!-- Scripts -->
   <script>
@@ -178,20 +177,15 @@
         `US Eastern Time: ${formattedTime}`;
     }
 
-    // Update the clock
     updateUSTime();
     setInterval(updateUSTime, 1000);
-  </script>
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('playMusic') === 'true') {
-      const audio = new Audio('feel It.mp3');
-      const elapsed = (Date.now() - localStorage.getItem('musicStartTime')) / 1000;
-      audio.currentTime = elapsed;
-      audio.loop = true;
+
+    // Enable audio playback on first click
+    const audio = document.getElementById("audio");
+    document.addEventListener("click", () => {
+      audio.muted = false;
       audio.play();
-    }
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
