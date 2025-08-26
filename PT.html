@@ -38,8 +38,7 @@
       display: inline-block;
       margin-top: 5px;
     }
-  </style>
-    <style>
+
     /* Player fixo no canto inferior direito */
     #musicPlayer {
       position: fixed;
@@ -58,10 +57,9 @@
     #musicPlayer audio {
       width: 100%;
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
 </head>
 <body>
   <!-- Fundo animado -->
@@ -104,13 +102,13 @@
   <section class="outros">
     <h2 class="header2"><span>mais...</span></h2>
 
-<div class="cards">
-  <h2>CYA STUDIOS</h2>
-  <p>A central CYA neste site!</p>
-  <span class="cc">
-    <a href="CYA.html" style="text-decoration:none; color:inherit;">Ir -></a>
-  </span>
-</div>
+    <div class="cards">
+      <h2>CYA STUDIOS</h2>
+      <p>A central CYA neste site!</p>
+      <span class="cc">
+        <a href="CYA.html" style="text-decoration:none; color:inherit;">Ir -></a>
+      </span>
+    </div>
     <div class="cards">
       <h2>Scripts</h2>
       <p>Os scripts mais OPs do mundo!</p>
@@ -123,10 +121,10 @@
     </div>
   </section>
 
+  <!-- Player de música -->
   <div id="musicPlayer">
-    <audio id="audio" src="feel it.mp3" autoplay loop controls></audio>
+    <audio id="audio" src="/feel%20it.mp3" autoplay loop muted controls></audio>
   </div>
-
 
   <!-- Scripts -->
   <script>
@@ -183,9 +181,15 @@
         `Horário de Brasília: ${horaFormatada}`;
     }
 
-    // Atualiza o relógio
     atualizarHoraBrasilia();
     setInterval(atualizarHoraBrasilia, 1000);
+
+    // Libera áudio ao primeiro clique
+    const audio = document.getElementById("audio");
+    document.addEventListener("click", () => {
+      audio.muted = false;
+      audio.play();
+    });
   </script>
   <script src="audio.js"></script>
 </body>
