@@ -1,4 +1,3 @@
-
 const AudioButton = document.getElementById("audio-button")
 const AudioPlay = document.getElementById("AudioHeader")
 
@@ -7,7 +6,7 @@ AudioButton.addEventListener("click", () => {
     AudioButton.src = "/imagem/com-som.png"
     AudioPlay.play()
   } else {
-    AudioButton.src = "sem-som.png"
+    AudioButton.src = "/imagem/sem-som.png"
     AudioPlay.pause()
   }
 })
@@ -17,9 +16,9 @@ AudioButton.addEventListener("dblclick", () => {
     let NumAleatorio = Math.floor(Math.random() * 2) + 1
 
     if (NumAleatorio === 1) {
-      AudioPlay.src = "d4vd - Feel It (Official Music Video) (1).mp3"
+      AudioPlay.src = "/audio/darling_franxx_sound.mp3"
     } else {
-      AudioPlay.src = "d4vd - Feel It (Official Music Video) (1).mp3"
+      AudioPlay.src = "/audio/lich_sound.mp3"
     }
     
     AudioPlay.load()
