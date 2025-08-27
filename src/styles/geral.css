@@ -173,3 +173,23 @@ header h1 {
   opacity: 0;
   pointer-events: none;
 }
+
+.audio {
+  width: 100px;           /* largura do player */
+  height: 40px;           /* altura do player */
+  border-radius: 10px;    /* cantos arredondados */
+  background-color: #222; /* fundo do player */
+  color: #fff;            /* cor dos controles */
+  outline: none;          /* remove outline quando clicado */
+}
+
+/* Personalização dos controles no Chrome/Safari */
+.audio::-webkit-media-controls-panel {
+  background-color: #222;
+  border-radius: 10px;
+}
+
+.audio::-webkit-media-controls-play-button,
+.audio::-webkit-media-controls-volume-slider {
+  filter: invert(1); /* deixa botões brancos */
+}
