@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página inicial (seleção de idioma) -->
+  <url>
+    <loc>https://phgsscripts.vercel.app/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Versão em português -->
+  <url>
+    <loc>https://phgsscripts.vercel.app/PT.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Versão em inglês -->
+  <url>
+    <loc>https://phgsscripts.vercel.app/IN.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
