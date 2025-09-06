@@ -9,13 +9,13 @@
 
   <!-- Versão em português -->
   <url>
-    <loc>https://phgsscripts.vercel.app/pt.html</loc>
+    <loc>https://phgsscripts.vercel.app/PT.html</loc>
     <priority>0.9</priority>
   </url>
 
   <!-- Versão em inglês -->
   <url>
-    <loc>https://phgsscripts.vercel.app/in.html</loc>
+    <loc>https://phgsscripts.vercel.app/IN.html</loc>
     <priority>0.9</priority>
   </url>
 
